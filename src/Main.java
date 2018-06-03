@@ -60,7 +60,7 @@ public class Main
 			
 			
 			
-			//This is for when the user is NOT in the safe range, BUT they can leave the unsafe zone with their refills
+			//This 3rd condition is for when the user is NOT in the safe range, BUT they can leave the unsafe zone with their refills
 			else if(chakraLvl < 51 && refills > 0)
 			{
 		System.out.println("You have " + chakraLvl + " chakra points remaining. YOU'RE RUNNING LOW ON CHAKRA. REFILL NOW SO YOU DON'T DIE! "
@@ -76,7 +76,7 @@ public class Main
 				+ "\n7. I'm done");
 			} //End of 3rd condition
 			
-			//This is for when the user is NOT in the safe range AND they have no refills. The only thing the user can do now is exit or die.
+			//This 4th condition is for when the user is NOT in the safe range AND they have no refills. The only thing the user can do now is exit or die.
 			else if(chakraLvl < 51 && refills == 0)
 			{
 		System.out.println("You have " + chakraLvl + " chakra points remaining. YOU'RE RUNNING LOW ON CHAKRA, AND YOU HAVE NO REFILLS!"
@@ -103,8 +103,8 @@ public class Main
 		if(choice < 1 || choice > 7 || (chakraLvl < 21 && choice < 6))
 		{
 			
-		do //Begin next do while. This is for repeated instance of ignored directions or if they think they're rambo.
-		{
+			do //Begin next do while. This do-while is here just in case there are repeated instance of ignored directions or if they think they're rambo.
+			{
 			System.out.println("Invalid entry or you don't have chakra!");
 			System.out.println("\nChoose a ninjutsu."
 					+ "\n"
@@ -117,11 +117,12 @@ public class Main
 				+ "\n7. I'm done");
 			choice = c.nextInt();
 			
-		}while(choice < 1 || choice > 7 || (chakraLvl < 21 && refills == 0 && choice < 7)); //End do while.
+			}while(choice < 1 || choice > 7 || (chakraLvl < 21 && refills == 0 && choice < 7)); //End do while.
 		
 		} //End of condition
 		
-		//Another conditional statement for the chosen options
+			
+		//This switch begins when the user picks a valid option
 		switch(choice) //Begin switch
 		{
 		case 1:
@@ -181,6 +182,7 @@ public class Main
 		
 	}
 	
+	//This method is for the shadow clone jutsu!
 	public static int shadowCloneJutsu(int chakra)
 	{
 		int numClones;
@@ -212,6 +214,7 @@ public class Main
 		
 	}
 
+	//This method is for the Rasengan
 	public static int Rasengan(int chakra)
 	{
 		Scanner R = new Scanner (System.in);
@@ -244,6 +247,7 @@ public class Main
 		
 	}
 	
+	//This method is for using the Rasenshuriken
 	public static int Rasenshuriken(int chakra)
 	{
 		Scanner RS = new Scanner (System.in);
@@ -274,6 +278,7 @@ public class Main
 		return Result;
 	}
 	
+	//This method is used when the user wants to use a tailed beast bomb
 	public static int TBB(int chakra)
 	{
 		Scanner BB = new Scanner (System.in);
